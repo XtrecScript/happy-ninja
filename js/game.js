@@ -14,8 +14,8 @@ window.onload = function() {
   var powerTween;
   var placedPoles;
   var poleGroup;
-  var minPoleGap = 100;
-  var maxPoleGap = 200;
+  var minPoleGap = 90;
+  var maxPoleGap = 100;
   var ninjaJumping;
   var ninjaFallingDown;
   var play = function(game) {}

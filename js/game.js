@@ -35,7 +35,6 @@ window.onload = function() {
       score = 0;
       placedPoles = 0;
       poleGroup = game.add.group();
-      topScore = localStorage.getItem("topFlappyScore") == null ? 0 : localStorage.getItem("topFlappyScore");
       scoreText = game.add.text(10, 10, "-", {
         font: "bold 16px Arial"
       });
@@ -60,7 +59,6 @@ window.onload = function() {
   game.state.start("Play");
 
   function updateScore() {
-    scoreText.text = "Score: " + score + "\nBest: " + topScore;
   }
 
   function prepareToJump() {
@@ -86,7 +84,7 @@ window.onload = function() {
   }
 
   function addNewPoles() {
-    var maxPoleX = 0;
+    var maxPoleX = 1;
     poleGroup.forEach(function(item) {
       maxPoleX = Math.max(item.x, maxPoleX)
     });

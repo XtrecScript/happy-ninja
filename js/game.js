@@ -15,7 +15,7 @@ window.onload = function() {
   var placedPoles;
   var poleGroup;
   var minPoleGap = 100;
-  var maxPoleGap = 300;
+  var maxPoleGap = 200;
   var ninjaJumping;
   var ninjaFallingDown;
   var play = function(game) {}

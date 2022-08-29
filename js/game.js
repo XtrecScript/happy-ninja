@@ -24,6 +24,9 @@ window.onload = function() {
   var ninjaFallingDown;
   var time;
   var music; 
+  var world;
+  var test;
+  var death;
 
   //Cargando los assets necesarios
   var play = function(game) {}
@@ -34,6 +37,8 @@ window.onload = function() {
       game.load.image("ninja", "assets/1.png");
       game.load.image("container", "assets/container.png");
       game.load.audio("jump","assets/jump.mp3");
+      game.load.audio("world", "assets/world.mp3");
+      game.load.audio("death","assets/death.mp3");
 
       game.load.spritesheet("ninje" , "assets/ninja2.png" , 43 ,54);
       game.load.spritesheet("background", "assets/background.png" , 941, 479);
@@ -89,7 +94,9 @@ window.onload = function() {
       background.animations.add("b4", [3,], 3, true);
       
       music = game.add.audio("jump");
-      music.play();
+      world = game.add.audio("world");
+      death = game.add.audio("death");
+      world.play();
 
       
     },
@@ -101,6 +108,7 @@ window.onload = function() {
 
       if (ninje.y > game.height) {
         die();
+        death.play();
       }
       if (time >= 4){
         background.animations.play("b2")
@@ -181,6 +189,7 @@ window.onload = function() {
     angle.destroy();
     game.input.onUp.remove(jump, this);
     ninje.animations.play("jump");
+    music.play();
   }
 
   //Funcion para anadir nuevos postes
@@ -209,6 +218,7 @@ window.onload = function() {
   function die() {
     localStorage.setItem("topFlappyScore", Math.max(score, topScore,));
     game.state.start("Play");
+    world.stop();
   }
 
 
@@ -239,6 +249,7 @@ window.onload = function() {
       });
     }
   }
+
   Pole = function(game, x, y) {
     Phaser.Sprite.call(this, game, x, y, "pole");
     game.physics.enable(this, Phaser.Physics.ARCADE);

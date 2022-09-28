@@ -203,7 +203,7 @@ window.onload = function() {
         
       }
 
-      if(time>= 4){
+      if(time>= 5){
         questions2.visible = true;
         questions2.animations.play("q2")
         button_a2.animations.play("b1")
@@ -223,13 +223,13 @@ window.onload = function() {
       }
 
       //Fondos
-      if (time >= 4){
+      if (time >= 3){
         background.animations.play("b2")
       }
-      if (time > 6){
+      if (time > 5){
         background.animations.play("b3")
       }
-      if (time > 8){
+      if (time > 7){
         background.animations.play("b4")
       }
     }
